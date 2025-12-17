@@ -6,7 +6,7 @@ parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/se
 author: ElStitchMalo
 date: 16/12/2025
 updated:
-tags: [inyecciones SQL fuera de banda (OAST)]
+tags: [inyecciones SQL fuera de banda OAST]
 ---
 
 En algunos entornos la consulta vulnerable se ejecuta de forma asíncrona (por ejemplo en otro hilo, mediante trabajos en background o peticiones que disparan acciones asíncronas). En ese caso, la respuesta HTTP del hilo original no refleja ni errores ni tiempos de ejecución de la consulta; por tanto, ninguna de las tecnicas de [inyección SQL ciega](../../ciegas/introduccion) funcionarán.

@@ -6,7 +6,7 @@ parent: /academia/ciberseguridad/herramientas/auditorias-web/codificacion-y-ofus
 author: ElStitchMalo
 date: 16/12/2025
 updated:
-tags: [codificación y ofuscación]
+tags: [codificacion y ofuscacion]
 ---
 
 Hackvertor es una herramienta potente y versátil diseñada para optimizar tus flujos de trabajo mediante la conversión, codificación y transformación de texto o código. Tanto si eres desarrollador, hacker o entusiasta de la tecnología, Hackvertor te ofrece funciones avanzadas como scripting personalizado, vista previa en tiempo real y una amplia biblioteca de transformaciones. Es tu aliado perfecto para afrontar desafíos de codificación complejos, optimizar procesos y dar rienda suelta a tu creatividad con precisión y rapidez.

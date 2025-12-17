@@ -6,7 +6,7 @@ parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/se
 author: ElStitchMalo
 date: 16/12/2025
 updated:
-tags: [consultas Client-Side / API / JSON / GraphQL]
+tags: [consultas Client-Side-API-JSON-GraphQL]
 ---
 
 Estos no son nuevos tipos teóricos de SQLi, sino contextos de entrada modernos donde puede darse la inyección: cuerpos JSON en APIs REST, argumentos en GraphQL, parámetros en requests AJAX o valores manipulados en el cliente antes de enviarlos al servidor. En estos contextos la inyección funciona igual ([inyección SQL en banda](../../segun-el-canal-de-comunicacion/en-banda/introduccion), [inyección SQL ciega](../../segun-el-canal-de-comunicacion/ciegas/introduccion) u [inyección SQL fuera de banda](../../segun-el-canal-de-comunicacion/fuera-de-banda/fuera-de-banda-oast)) pero cambia el vector y la sintaxis: los payloads deben insertarse en JSON, variables GraphQL, cabeceras o datos multipart. Es imprescindible auditar APIs, endpoints JSON, resolvers GraphQL y la lógica cliente/servidor, porque las aplicaciones modernas a menudo exponen superficies que no aparecen en páginas HTML tradicionales.
