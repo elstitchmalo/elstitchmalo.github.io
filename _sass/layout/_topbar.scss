@@ -127,6 +127,8 @@
 
   @include bp.lte(bp.get(md)) {
     @include mx.max-w-100;
+    padding-left: calc(var(--bs-gutter-x)*.5);
+    padding-right: calc(var(--bs-gutter-x)*.5);
   }
 
   @include bp.lt(bp.get(lg)) {
@@ -143,14 +145,31 @@
   #search-trigger {
     display: none;
   }
-  #search{
-    margin: 0;
-    display: flex;
-    #search-input{
-      @include bp.lt(bp.get(lg)) {
-        text-align: center;
-      }
+  .search-wrapper{
+    position: relative;
+    border-radius: 1rem;
+    border: 1px solid var(--search-border-color);
+    background: var(--main-bg);
+    padding: 0 .5rem;
+    input {
+      padding-right: 2.5rem;
     }
+    .search-icon {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted-color);
+      pointer-events: none; // no bloquea el input
+    }
+    @include bp.lt(bp.get(lg)) {
+      width: 100%;
+    }
+  }
+
+  @include bp.lte(bp.get(md)) {
+    padding-left: calc(var(--bs-gutter-x)*.5);
+    padding-right: calc(var(--bs-gutter-x)*.5);
   }
 }
 
@@ -175,6 +194,7 @@
 
 #sidebar-trigger{
   display: none;
+  padding: 0;
 
   @include bp.lt(bp.get(lg)) {
     display: block;

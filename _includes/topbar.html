@@ -61,8 +61,7 @@
       <button type="button" id="search-trigger" class="btn btn-link" aria-label="Search">
         <i class="fas fa-search fa-fw"></i>
       </button> 
-      <search id="search" class="align-items-center">
-        <!-- <i class="fas fa-search fa-fw"></i> -->
+      <div class="search-wrapper">
         <input
           class="form-control"
           id="search-input"
@@ -71,7 +70,8 @@
           autocomplete="off"
           placeholder="{{ site.data.locales[include.lang].search.hint | escape | capitalize }}..."
         >
-      </search>
+        <i class="fas fa-search search-icon"></i>
+      </div>
       <button type="button" class="btn btn-link text-decoration-none" id="search-cancel">
         {{- site.data.locales[include.lang].search.cancel | escape -}}
       </button>
