@@ -2,8 +2,11 @@
 ---
 
 /* prettier-ignore */
-@use 'main' {%- if jekyll.environment == 'production' -%}.bundle{%- endif -%};
-
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
 /* Importa tu SCSS personalizado */
 
 /* append your custom style below */
