@@ -11,10 +11,13 @@
   --text-muted-color: #868686;
   --text-muted-highlight-color: #aeaeae;
   --heading-color: #cccccc;
+  --gold-color: #c39b1a;
+  --red-color: #c54444;
+  --text-links-color: #6fa8dc;
   --label-color: #a7a7a7;
   --blockquote-border-color: rgb(66 66 66);
   --blockquote-text-color: #868686;
-  --link-color: rgb(138 180 248);
+  --link-color: #6fa8dc;
   --link-underline-color: rgb(82 108 150);
   --button-bg: #1e1e1e;
   --btn-border-color: #2e2f31;
@@ -34,6 +37,7 @@
   /* Sidebar */
   --site-title-color: #717070;
   --site-subtitle-color: #868686;
+  --site-subtitle-collaborate-color: #c39b1a;
   --sidebar-bg: #1e1e1e;
   --sidebar-border-color: #292929;
   --sidebar-muted-color: #868686;
@@ -44,7 +48,7 @@
   --avatar-border-color: rgb(206 206 206 / 90%);
 
   /* Topbar */
-  --topbar-bg: rgb(27 27 30 / 64%);
+  --topbar-bg: rgb(27, 27, 30);
   --topbar-text-color: var(--text-color);
   --search-border-color: rgb(55 55 55);
   --search-icon-color: rgb(100 102 105);
@@ -58,7 +62,7 @@
   /* Posts */
   --toc-highlight: rgb(116 178 243);
   --toc-popup-border-color: #373737;
-  --tag-hover: rgb(43 56 62);
+  --tag-hover: #6fa8dc;
   --tb-odd-bg: #252526; /* odd rows of the posts' table */
   --tb-even-bg: rgb(31 31 34); /* even rows of the posts' table */
   --tb-border-color: var(--tb-odd-bg);

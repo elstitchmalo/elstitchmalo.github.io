@@ -1,0 +1,115 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/breakpoints' as bp;
+
+/* === TOC PERSONALIZADO FIJO === */
+
+#contenedor-toc {
+  position: fixed;
+  right: 1.25rem;
+  width: 19%;
+  top: 13rem;
+  height: 70%;
+  overflow-y: auto;
+
+  @include bp.lt(bp.get(xl)) {
+    display: none;
+  }
+}
+
+#mi-trending-tag{
+  margin-bottom: 4rem;
+  border-left: 1px solid var(--main-border-color);
+  padding-left: 1rem;
+
+  h2{
+    font-weight: 600;
+    font-size: inherit;
+    color: var(--label-color);
+    margin-top: 0;
+  }
+
+  a{
+    line-height: 1.05rem;
+    font-size: .85rem;
+    border-radius: .8rem;
+    padding: .3rem .5rem;
+    margin: 0 .35rem .5rem 0;
+  }
+}
+
+/* Panel estilo Chirpy */
+#mi-toc {
+  border-left: 1px solid var(--main-border-color);
+}
+
+/* Título del TOC */
+#mi-toc-title {
+  font-weight: 600;
+  font-size: inherit;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  color: var(--text-color);
+}
+
+#mi-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.25rem;
+}
+
+#mi-toc li {
+  margin: 0;
+  position: relative; // necesario para ::before del active
+}
+
+#mi-toc a {
+  display: block;
+  padding: 0.4rem 0;
+  font-size: 0.82rem;
+  color: var(--text-muted-color);
+  opacity: 0.85;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* ======= Niveles ======= */
+#mi-toc li.level-h2 a { padding-left: 1.25rem; }
+#mi-toc li.level-h3 a { padding-left: 2rem; }
+#mi-toc li.level-h4 a { padding-left: 2.75rem; opacity: 0.8; }
+#mi-toc li.level-h5 a { padding-left: 3.5rem; opacity: 0.75; font-size: 0.78rem; }
+
+/* ======= Hover ======= */
+#mi-toc a:hover {
+  color: var(--gold-color) !important;
+  text-decoration: none;
+}
+
+/* ======= Link activo ======= */
+#mi-toc li a.active {
+  color: var(--gold-color);
+  font-weight: 600;
+}
+
+/* Linea izquierda del link activo */
+#mi-toc li a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;        // al borde izquierdo del <li>
+  top: 0;
+  width: 1px;     // grosor de la línea
+  height: 100%;   // ocupa toda la altura del <li>
+  background-color: var(--gold-color);
+}
+
+/* Subniveles más indentados se mantienen correctos */
+#mi-toc li.level-h3 a.active::before { left: 0; }
+#mi-toc li.level-h4 a.active::before { left: 0; }
+#mi-toc li.level-h5 a.active::before { left: 0; }
+
+.content h2,
+.content h3,
+.content h4,
+.content h5 {
+  scroll-margin-top: 10rem; /* la altura de tu topbar + margen deseado */
+}

@@ -12,6 +12,27 @@ layout: compress
   {% capture prefer_mode %}data-mode="{{ site.theme_mode }}"{% endcapture %}
 {% endif %}
 
+{% unless page.layout == "home" or page.layout == "post" %}
+<style>
+  #panel-wrapper {
+    display: none;
+  }
+</style>
+{% endunless %}
+
+{% unless page.layout == "home" or page.layout == "post" or page.layout == "academia_lesson" %}
+<style>
+  #main-wrapper {
+    main {
+      width: 100% !important;
+    }
+    #tail-wrapper{
+      width: 100% !important;
+    }
+  }
+</style>
+{% endunless %}
+
 <!-- `site.alt_lang` can specify a language different from the UI -->
 <html lang="{{ page.lang | default: site.alt_lang | default: site.lang }}" {{ prefer_mode }}>
   {% include head.html %}

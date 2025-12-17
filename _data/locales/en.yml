@@ -75,11 +75,11 @@ post:
 # See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
 df:
   post:
-    strftime: "%b %e, %Y"
-    dayjs: "ll"
+    strftime: "%d %B %Y"   # Liquid: 11 diciembre 2025
+    dayjs: "DD MMMM YYYY"   # JS: 11 diciembre 2025
   archives:
-    strftime: "%b"
-    dayjs: "MMM"
+    strftime: "%B"          # Nombre completo del mes
+    dayjs: "MMMM"
 
 # categories page
 categories:

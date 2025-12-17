@@ -9,6 +9,18 @@
     content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
   >
 
+<meta http-equiv="Content-Security-Policy"
+content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com;
+  img-src 'self' https: data:;
+  font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
+  connect-src 'self' https: blob:;
+  object-src 'none';
+  base-uri 'self';
+">
+
   {%- capture seo_tags -%}
     {% seo title=false %}
   {%- endcapture -%}
@@ -52,7 +64,7 @@
 
   <title>
     {%- unless page.layout == 'home' -%}
-      {{ page.title | append: ' | ' }}
+      {{ page.title | escape | append: ' | ' }}
     {%- endunless -%}
     {{ site.title }}
   </title>
@@ -100,6 +112,10 @@
   <!-- Scripts -->
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
+
+  <script type="module" src="{{ '/assets/js/vendor/model-viewer.min.js' | relative_url }}"></script>
+
+  <script src="{{ '/assets/js/custom/model-switcher.js' | relative_url }}"></script>
 
   {% include js-selector.html lang=lang %}
 

@@ -351,7 +351,9 @@ main {
 /* Overwrite bootstrap outline button */
 .btn.btn-outline-primary {
   &:not(.disabled):hover {
-    border-color: #007bff !important;
+    border-color: var(--link-color) !important;
+    background-color: transparent;
+    color: var(--link-color)
   }
 }
 
@@ -431,6 +433,8 @@ mjx-container {
   }
 
   > .container {
+    position: absolute;
+    top: 10rem;
     min-height: 100vh;
 
     @include bp.lte(bp.get(md)) {

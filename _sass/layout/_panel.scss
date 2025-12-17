@@ -28,6 +28,9 @@
 }
 
 #panel-wrapper {
+  position: fixed;
+  right: 1.25rem;
+  width: 19%;
   /* the headings */
   .panel-heading {
     font-family: inherit;

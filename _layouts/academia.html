@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+<!-- Bloque de información antes de los cursos -->
+<div id="academia-intro">
+  <!-- Logo -->
+  <img src="{{ '/assets/img/favicons/Academia_Bullworth_emblema.webp' | relative_url }}" alt="Logo" class="no-link">
+
+  <!-- Texto -->
+  <div style="color:#fff;">
+    <p>En esta academia se comparten resúmenes y materiales de estudio pensados para el repaso práctico.</p>
+    <p style="color:var(--gold-color)">¡No olvides dejar una ⭐ en el proyecto!</p>
+  </div>
+</div>
+
+<!-- Cursos -->
+{% assign top_courses = site.academia | where: "parent", "/academia/" %}
+<div id="academia-cursos">
+  <ul class="p-0">
+    {% for course in top_courses %}
+      <a href="{{ course.url | relative_url }}" class="card categories">
+        <div id="cursos">
+          <h1>{{ course.title | escape }}</h1>
+          <p>{% if course.description %}{{ course.description | escape }}</p>{% endif %}
+        </div>
+      </a>
+    {% endfor %}
+  </ul>
+</div>

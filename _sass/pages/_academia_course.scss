@@ -1,0 +1,16 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/breakpoints' as bp;
+
+#academia-course{
+    margin-top: 2rem;
+    .categories{
+        margin-bottom: 1.25rem;
+        a{
+            color: var(--text-color);
+        }
+        a:hover{
+            color: var(--gold-color);
+        }
+        
+    }
+}

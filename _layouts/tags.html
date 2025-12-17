@@ -3,10 +3,18 @@ layout: page
 # All the Tags of posts.
 ---
 
-<div id="tags" class="d-flex flex-wrap mx-xl-2">
+<div id="tags" class="d-flex flex-wrap">
+  {% assign all_items = site.posts | concat: site.academia %}
   {% assign tags = '' | split: '' %}
-  {% for t in site.tags %}
-    {% assign tags = tags | push: t[0] %}
+
+  {% for item in all_items %}
+    {% if item.tags %}
+      {% for t in item.tags %}
+        {% unless tags contains t %}
+          {% assign tags = tags | push: t %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
   {% endfor %}
 
   {% assign sorted_tags = tags | sort_natural %}
@@ -14,8 +22,16 @@ layout: page
   {% for t in sorted_tags %}
     <div>
       <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
-        {{ t -}}
-        <span class="text-muted">{{ site.tags[t].size }}</span>
+        {{ t | escape }}
+        <span class="text-muted">
+          {% assign count = 0 %}
+          {% for item in all_items %}
+            {% if item.tags contains t %}
+              {% assign count = count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ count }}
+        </span>
       </a>
     </div>
   {% endfor %}

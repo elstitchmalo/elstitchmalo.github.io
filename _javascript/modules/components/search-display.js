@@ -73,12 +73,12 @@ function isMobileView() {
   return btnCancel.classList.contains(LOADED);
 }
 
-export function displaySearch() {
-  btnSearchTrigger.addEventListener('click', () => {
-    MobileSearchBar.on();
-    ResultSwitch.on();
-    input.focus();
-  });
+// export function displaySearch() {
+//   btnSearchTrigger.addEventListener('click', () => {
+//     MobileSearchBar.on();
+//     ResultSwitch.on();
+//     input.focus();
+//   });
 
   btnCancel.addEventListener('click', () => {
     MobileSearchBar.off();

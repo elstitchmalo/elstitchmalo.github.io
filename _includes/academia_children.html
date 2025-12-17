@@ -1,0 +1,13 @@
+{% assign parent_url = parent_url | default: page.url %}
+{% assign hijos = site.academia | where: "parent", parent_url %}
+
+{% if hijos.size > 0 %}
+  <ul>
+    {% for hijo in hijos %}
+    <li>
+      <a href="{{ hijo.url | relative_url }}">{{ hijo.title | escape }}</a>
+      {% if hijo.description %}<p>{{ hijo.description | escape }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+{% endif %}

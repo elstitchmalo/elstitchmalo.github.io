@@ -1,0 +1,71 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/breakpoints' as bp;
+
+#academia-intro{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+
+    img{
+        width: 15%;
+    }
+    div{
+        width: 85%;
+        padding: 0 0 0 3rem;
+        text-align: justify;
+
+        .ciberseguridad{
+            color: var(--red-color);
+
+            span{
+                font-weight: bold;
+            }
+        }
+    }
+
+    @include bp.lt(bp.get(lg)) {
+        flex-wrap: wrap;
+
+        img{
+            width: 30%;
+            margin-bottom: 2rem;
+        }
+        div{
+            width: 100%;
+            padding: 0;
+        }
+    }
+}
+
+#academia-cursos{
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        a{
+            color: var(--heading-color) !important;
+            list-style: none;
+            width: 48%;
+            margin-bottom: 1.25rem;
+            box-shadow: var(--card-shadow);
+            border-color: rgba(0, 0, 0, 0);
+            #cursos{
+                padding: 1rem;
+                h1{
+                    font-size: 1.25rem;
+                    margin: 0 0 0.5rem 0;
+                }
+                p{
+                    color: var(--text-muted-color) !important
+                }
+            }
+
+            @include bp.lt(bp.get(lg)) {
+                width: 100%;
+            }
+        }
+    }
+}

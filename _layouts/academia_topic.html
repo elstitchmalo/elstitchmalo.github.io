@@ -1,0 +1,144 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+{% assign HEAD_PREFIX = 'h_' %}
+{% assign LIST_PREFIX = 'l_' %}
+{% assign group_index = 0 %}
+
+{% include breadcrumb.html %}
+
+<h1>{{ page.title | escape }}</h1>
+
+{% assign parent_url_normalizado = page.url | remove: "index/" %}
+{% assign hijos = site.academia | where_exp: "p", "p.parent == parent_url_normalizado" %}
+
+<div id="academia-course">
+
+{% if hijos.size > 0 %}
+
+  {%- comment -%}
+  =====================================================
+  SEPARAR ARCHIVOS Y CARPETAS
+  Carpetas ⇒ tienen index.md
+  Archivos ⇒ cualquier .md que no sea index.md
+  =====================================================
+  {%- endcomment -%}
+
+  {% assign file_items = "" | split: "" %}
+  {% assign folder_items = "" | split: "" %}
+
+  {% for hijo in hijos %}
+    {% if hijo.path contains "/index.md" %}
+      {% assign folder_items = folder_items | push: hijo %}
+    {% else %}
+      {% assign file_items = file_items | push: hijo %}
+    {% endif %}
+  {% endfor %}
+
+  {%- comment -%}
+  =====================================================
+  MOSTRAR PRIMERO LOS ARCHIVOS (ESTILO CHIRPY)
+  =====================================================
+  {%- endcomment -%}
+
+  {% if file_items.size > 0 %}
+  <ul class="content ps-0">
+    {% for f in file_items %}
+      <li class="d-flex justify-content-between">
+
+        <!-- icono archivo -->
+        <span>
+          <i class="far fa-file fa-fw" style="color: var(--text-links-color);"></i>
+          <a href="{{ f.url | relative_url }}" class="ms-1 personalizado" style="color: var(--text-color); border: none;">{{ f.title | escape }}</a>
+        </span>
+
+        <span class="dash flex-grow-1"></span>
+
+        {% if f.date %}
+          {% include datetime.html date=f.date class='text-muted small text-nowrap' lang=lang %}
+        {% endif %}
+
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {%- comment -%}
+  =====================================================
+  MOSTRAR LUEGO LAS CARPETAS COMO CARD (CON NIETOS)
+  =====================================================
+  {%- endcomment -%}
+
+  {% for hijo in folder_items %}
+
+    {% assign child_url_normalizado = hijo.url | remove: "index/" %}
+    {% assign nietos = site.academia | where_exp: "p", "p.parent == child_url_normalizado" %}
+    {% assign sub_categories_size = nietos.size %}
+
+    <div class="card categories">
+
+      <!-- Header carpeta -->
+      <div id="{{ HEAD_PREFIX }}{{ group_index }}" class="card-header d-flex justify-content-between hide-border-bottom">
+
+        <span>
+          <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw" style="color: var(--gold-color);"></i>
+          <a href="{{ hijo.url | relative_url }}" class="mx-2">{{ hijo.title | escape }}</a>
+        </span>
+
+        {% if sub_categories_size > 0 %}
+          <a href="#{{ LIST_PREFIX }}{{ group_index }}" 
+             data-bs-toggle="collapse"
+             aria-expanded="true"
+             aria-label="{{ HEAD_PREFIX }}{{ group_index }}-trigger"
+             class="category-trigger hide-border-bottom">
+            <i class="fas fa-fw fa-angle-down"></i>
+          </a>
+        {% endif %}
+      </div>
+
+      {% if sub_categories_size > 0 %}
+        <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show">
+          <ul class="list-group">
+
+            {% for n in nietos %}
+              <li class="list-group-item d-flex justify-content-between">
+
+                <span>
+                  {% if n.path contains "/index.md" %}
+                    <i class="far fa-folder fa-fw" style="color: var(--gold-color);"></i>
+                  {% else %}
+                    <i class="far fa-file fa-fw" style="color: var(--text-links-color);"></i>
+                  {% endif %}
+                  <a href="{{ n.url | relative_url }}" class="mx-2">{{ n.title | escape }}</a>
+                </span>
+
+                {% unless n.path contains "/index.md" %}
+                  <span class="dash flex-grow-1"></span>
+                  {% if n.date %}
+                    {% include datetime.html date=n.date class='text-muted small text-nowrap' lang=lang %}
+                  {% endif %}
+                {% endunless %}
+
+              </li>
+            {% endfor %}
+
+          </ul>
+        </div>
+      {% endif %}
+
+    </div>
+
+    {% assign group_index = group_index | plus: 1 %}
+
+  {% endfor %}
+
+{% else %}
+
+  <p>Proximamente...</p>
+
+{% endif %}
+
+</div>

@@ -1,0 +1,37 @@
+<nav id="breadcrumb" aria-label="Breadcrumb">
+  {% assign paths = page.url | split: '/' | reject: '' %}
+  {% assign paths = paths | shift %}
+
+  {%- comment -%} Eliminar último elemento si es carpeta (index) {%- endcomment -%}
+  {% if paths.last == "index" or paths.last == "index.html" %}
+    {% assign paths = paths | pop %}
+  {% endif %}
+
+  {% assign current_path = '' %}
+
+  {% for item in paths %}
+  
+    {% unless forloop.first %}
+      <span class="breadcrumb-separator"> &gt; </span>
+    {% endunless %}
+
+    {% assign current_path = current_path | append: '/' | append: item %}
+
+    {% if forloop.last %}
+      <span class="breadcrumb-item">{{ page.title | escape }}</span>
+    {% else %}
+      <span class="breadcrumb-item">
+        <!-- <a href="{{ current_path | append: '/index/' | relative_url }}"> -->
+        <a href="{% if page.collection == 'posts' %}/{% else %}{{ current_path | append: '/index/' | relative_url }}{% endif %}">
+          {% if paths.first == 'posts' %}
+            Noticias
+          {% else %}
+            {{ site.data.locales[include.lang].tabs[item] | default: item | escape | capitalize }}
+          {% endif %}
+        </a>
+      </span>
+    {% endif %}
+
+  {% endfor %}
+</nav>
+

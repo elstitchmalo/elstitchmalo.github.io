@@ -1,0 +1,170 @@
+---
+layout: default
+custom_css: /assets/css/academia_lesson.css
+---
+
+{% assign page.custom_css = custom_css %}
+
+{% include lang.html %} 
+
+<article class="px-1">
+
+  {% include breadcrumb.html %}
+
+  <header>
+    <!-- Título del post -->
+    <h1 data-toc-skip>{{ page.title | escape }}</h1>
+
+    <!-- Meta información del post -->
+    <div class="post-meta text-muted">
+
+      <!-- Fecha de publicación -->
+      {% if page.date %}
+        <span>
+          Publicado:
+          {% include datetime.html date=page.date tooltip=true lang=lang %}
+        </span>
+      {% endif %}
+
+      <!-- Última modificación -->
+      {% if page.updated %}
+        <span class="ms-2">
+          Actualizado:
+          {% include datetime.html date=page.updated tooltip=true lang=lang %}
+        </span>
+      {% endif %}
+
+      <!-- Autor y tiempo de lectura -->
+      <div class="d-flex justify-content-between">
+        <span>
+          Por
+          <em>
+            {% if page.author %}
+              {{ page.author | escape }}
+            {% else %}
+              {{ site.social.name | escape }}
+            {% endif %}
+          </em>
+        </span>
+
+        <!-- Tiempo estimado de lectura -->
+        <div>
+          {% include read-time.html content=content prompt=true lang=lang %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido principal del post -->
+  <div class="content">
+    {{ content }}
+  </div>
+
+  <div class="post-tail-wrapper text-muted" style="border-bottom: none;">
+
+    <!-- tags -->
+    {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        {% for tag in page.tags %}
+          <a
+            href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/"
+            class="post-tag no-text-decoration"
+          >
+            {{- tag | escape -}}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+  <!-- div.post-tail-wrapper -->
+
+  <!------------------------------------------------>
+  <!-------------------- SCRIPT -------------------->
+  <!------------------------------------------------>
+
+  <div id="contenedor-toc" class="ps-2 px-2">
+    
+    <div id="mi-trending-tag">
+      {% include trending-tags.html lang=lang %}
+    </div>
+
+    <div id="mi-toc" class="my-custom-toc">
+      <div id="mi-toc-title">Contenido</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.querySelector("#mi-toc");
+      if (!container) return;
+
+      // ---- Selección de encabezados (H2–H5) solo dentro del contenido principal ----
+      const mainContent = document.querySelector("main .content");
+      if (!mainContent) return;
+
+      const headers = Array.from(
+        mainContent.querySelectorAll("h2, h3, h4, h5")
+      ).filter(h => 
+        !h.classList.contains("panel-heading") &&   // Ignorar panel-heading
+        !h.hasAttribute("data-toc-skip")           // Ignorar los que tengan data-toc-skip
+      );
+
+      if (headers.length === 0) {
+        const titleDiv = document.querySelector("#mi-toc-title");
+        if(titleDiv) titleDiv.insertAdjacentHTML("afterend", "<p style='margin-left: 1rem;'>No hay secciones.</p>");
+        return;
+      }
+
+      // ---- Generación del TOC ----
+      let html = "<ul>";
+      headers.forEach(h => {
+        let id = h.id;
+
+        if (!id) {
+          id = h.innerText.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
+          h.id = id;
+        }
+
+        html += `
+          <li class="level-${h.tagName.toLowerCase()}">
+            <a href="#${id}">${h.innerText}</a>
+          </li>`;
+      });
+      html += "</ul>";
+
+      // Insertar la lista después del título, sin borrar el div existente
+      const titleDiv = document.querySelector("#mi-toc-title");
+      if(titleDiv) {
+        titleDiv.insertAdjacentHTML("afterend", html);
+      } else {
+        container.innerHTML = html;
+      }
+
+      // ---- Marcado dinámico (IntersectionObserver) ----
+      const tocLinks = container.querySelectorAll("a");
+
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            const id = entry.target.getAttribute("id");
+            const link = container.querySelector(`a[href="#${id}"]`);
+
+            if (entry.isIntersecting) {
+              tocLinks.forEach(a => a.classList.remove("active"));
+              if (link) link.classList.add("active");
+
+              // mantener el link activo centrado en el panel lateral
+              link.scrollIntoView({ block: "nearest", behavior: "smooth" });
+            }
+          });
+        },
+        { rootMargin: "0px 0px -70% 0px", threshold: 0.1 }
+      );
+
+      headers.forEach(section => observer.observe(section));
+    });
+  </script>
+
+</article>

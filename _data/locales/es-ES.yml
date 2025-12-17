@@ -14,7 +14,7 @@ tabs:
   categories: Categorías
   tags: Etiquetas
   archives: Archivo
-  about: Acerca de
+  about: Sobre mí
 
 # the text displayed in the search bar & search results
 search:
@@ -23,8 +23,8 @@ search:
   no_results: ¡Oops! No se encuentran resultados.
 
 panel:
-  lastmod: Actualizado recientemente
-  trending_tags: Etiquetas populares
+  lastmod: Subido recientemente
+  trending_tags: Trending Tags
   toc: Contenido
 
 copyright:
@@ -75,3 +75,11 @@ post:
 categories:
   category_measure: categorias
   post_measure: entradas
+
+df:
+  post:
+    strftime: "%d %B %Y"   # Liquid: 11 diciembre 2025
+    dayjs: "DD MMMM YYYY"   # JS: 11 diciembre 2025
+  archives:
+    strftime: "%B"          # Nombre completo del mes
+    dayjs: "MMMM"

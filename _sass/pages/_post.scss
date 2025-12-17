@@ -254,7 +254,7 @@ header {
   top: 0;
   transition: top 0.2s ease-in-out;
   overflow-y: auto;
-  max-height: 100vh;
+  height: 250px;
   scrollbar-width: none;
   margin-top: 2rem;
 
@@ -283,7 +283,7 @@ header {
       @extend %text-ellipsis;
 
       &:hover {
-        color: var(--toc-highlight);
+        color: var(--gold-color);
         text-decoration: none;
       }
 
@@ -293,14 +293,14 @@ header {
     }
 
     .is-active-link {
-      color: var(--toc-highlight) !important;
+      color: var(--gold-color) !important;
       font-weight: 600;
 
       &::before {
         display: inline-block;
         width: 1px;
         height: 1.25rem;
-        background-color: var(--toc-highlight) !important;
+        background-color: var(--gold-color) !important;
       }
     }
 

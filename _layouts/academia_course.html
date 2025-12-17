@@ -1,0 +1,112 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+{% assign HEAD_PREFIX = 'h_' %}
+{% assign LIST_PREFIX = 'l_' %}
+{% assign group_index = 0 %}
+
+<div class="mb-5">{% include breadcrumb.html %}</div>
+
+{% if page.title == "Ciberseguridad" %}
+<!-- Bloque de información para Ciberseguridad -->
+<div id="academia-intro">
+  <img src="{{ '/assets/img/favicons/Academia_Bullworth_emblema.webp' | relative_url }}" alt="Logo" class="no-link">
+
+  <div style="color:#fff;">
+    <p class="ciberseguridad">
+      <span>Descargo de responsabilidad:</span> 
+      Los contenidos de hacking presentados en esta academia se ofrecen exclusivamente con propósitos educativos.
+      No me hago responsable de los daños que puedan derivarse de un uso inapropiado.
+    </p>
+  </div>
+</div>
+{% endif %}
+
+<h1>{{ page.title }}</h1>
+
+{% assign parent_url_normalizado = page.url | remove: "index/" %}
+{% assign hijos = site.academia | where_exp: "p", "p.parent == parent_url_normalizado" | sort: "order" %}
+
+<div id="academia-course">
+
+{% if hijos.size > 0 %}
+  {% for hijo in hijos %}
+
+    <!-- ========================================================= -->
+    <!-- ----------- CADA BLOQUE (HIJO + NIETOS) ------------------ -->
+    <!-- ========================================================= -->
+
+    {% assign child_url_normalizado = hijo.url | remove: "index/" %}
+    {% assign nietos = site.academia | where_exp: "p", "p.parent == child_url_normalizado" %}
+    {% assign sub_categories_size = nietos.size %}
+
+    <div class="card categories">
+
+      <!-- Header del hijo -->
+      <div id="{{ HEAD_PREFIX }}{{ group_index }}" class="card-header d-flex justify-content-between hide-border-bottom">
+
+        <span>
+          <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw" style="color: var(--gold-color);"></i>
+          <a href="{{ hijo.url | relative_url }}" class="mx-2">{{ hijo.title | escape }}</a>
+        </span>
+
+        <!-- Flecha plegable si hay nietos -->
+        {% if sub_categories_size > 0 %}
+          <a href="#{{ LIST_PREFIX }}{{ group_index }}" 
+             data-bs-toggle="collapse"
+             aria-expanded="true"
+             aria-label="{{ HEAD_PREFIX }}{{ group_index }}-trigger"
+             class="category-trigger hide-border-bottom">
+            <i class="fas fa-fw fa-angle-down"></i>
+          </a>
+        {% else %}
+          <span class="category-trigger hide-border-bottom disabled">
+            <i class="fas fa-fw fa-angle-right"></i>
+          </span>
+        {% endif %}
+      </div>
+      <!-- /header -->
+
+      <!-- Lista de nietos (colapsable) -->
+      {% if sub_categories_size > 0 %}
+        <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show" aria-expanded="true">
+          <ul class="list-group">
+            {% for nieto in nietos %}
+              <li class="list-group-item d-flex justify-content-between">
+
+                <span>
+                  {% if nieto.path contains "/index.md" %}
+                    <i class="far fa-folder fa-fw" style="color: var(--gold-color)"></i>
+                  {% else %}
+                    <i class="far fa-file fa-fw" style="color: var(--text-links-color);"></i>
+                  {% endif %}
+                  <a href="{{ nieto.url | relative_url }}" class="mx-2">{{ nieto.title | escape }}</a>
+                </span>
+
+                {% unless nieto.path contains "/index.md" %}
+                  <span class="dash flex-grow-1"></span>
+                  {% if nieto.date %}
+                    {% include datetime.html date=nieto.date class='text-muted small text-nowrap' lang=lang %}
+                  {% endif %}
+                {% endunless %}
+
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+    </div>
+    <!-- /card -->
+
+    {% assign group_index = group_index | plus: 1 %}
+  {% endfor %}
+
+{% else %}
+  <p>Proximamente...</p>
+
+{% endif %}
+</div>

@@ -14,10 +14,13 @@ script_includes:
 {% include toc-status.html %}
 
 <article class="px-1" data-toc="{{ enable_toc }}">
+
+  {% include breadcrumb.html %}
+  
   <header>
-    <h1 data-toc-skip>{{ page.title }}</h1>
+    <h1 data-toc-skip>{{ page.title | escape }}</h1>
     {% if page.description %}
-      <p class="post-desc fw-light mb-4">{{ page.description }}</p>
+      <p class="post-desc fw-light mb-4">{{ page.description | escape }}</p>
     {% endif %}
 
     <div class="post-meta text-muted">
@@ -67,9 +70,9 @@ script_includes:
             {% if authors %}
               {% for author in authors %}
                 {% if site.data.authors[author].url -%}
-                  <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
+                  <a href="{{ site.data.authors[author].url | escape }}">{{ site.data.authors[author].name }}</a>
                 {%- else -%}
-                  {{ site.data.authors[author].name }}
+                  {{ site.data.authors[author].name | escape }}
                 {%- endif %}
                 {% unless forloop.last %}{{ '</em>, <em>' }}{% endunless %}
               {% endfor %}
@@ -99,7 +102,7 @@ script_includes:
 
   {% if enable_toc %}
     <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
-      <span class="label text-truncate">{{ page.title }}</span>
+      <span class="label text-truncate">{{ page.title | escape }}</span>
       <button type="button" class="toc-trigger btn me-1">
         <i class="fa-solid fa-list-ul fa-fw"></i>
       </button>
@@ -112,7 +115,7 @@ script_includes:
 
     <dialog id="toc-popup" class="p-0">
       <div class="header d-flex flex-row align-items-center justify-content-between">
-        <div class="label text-truncate py-2 ms-4">{{- page.title -}}</div>
+        <div class="label text-truncate py-2 ms-4">{{- page.title | escape -}}</div>
         <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
           <i class="fas fa-close"></i>
         </button>
@@ -131,7 +134,7 @@ script_includes:
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         {% for category in page.categories %}
-          <a href="{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/">{{ category }}</a>
+          <a href="{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/">{{ category | escape }}</a>
           {%- unless forloop.last -%},{%- endunless -%}
         {% endfor %}
       </div>
@@ -146,7 +149,7 @@ script_includes:
             href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/"
             class="post-tag no-text-decoration"
           >
-            {{- tag -}}
+            {{- tag | escape -}}
           </a>
         {% endfor %}
       </div>
