@@ -154,7 +154,7 @@ search {
 }
 
 #search-hints {
-  padding: 0 1rem;
+  padding: 0 .25rem;
 
   @include bp.lg {
     display: none;
