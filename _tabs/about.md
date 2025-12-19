@@ -5,8 +5,9 @@ order: 4
 ---
 
 {% capture favicon_path %}{{ '/assets/img/favicons' | relative_url }}{% endcapture %}
-![En construcción]({{ favicon_path }}/memeCV.jpeg){: .w-75 .mx-auto .d-block }
 
-<p style="text-align:center;">Proximamente...</p>
+![En construcción]({{ favicon_path }}/memeCV.jpeg){: style="display:block;margin:auto;width:75%;"}
+
+<p style="text-align:center;">Próximamente...</p>
 
 
