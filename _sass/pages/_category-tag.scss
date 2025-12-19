@@ -12,22 +12,17 @@
   ul > li {
     line-height: 1.5rem;
     padding: 0.6rem 0;
+    display: flex !important;
 
     /* dot */
     &::before {
-      background: #999999;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      display: block;
-      content: '';
-      position: relative;
-      top: 0.6rem;
+      content: "\f15b"; // icono file
+      font-family: "Font Awesome 5 Free";
+      font-weight: 400; // far = regular
+      color: var(--text-links-color);
+      font-size: 0.9rem;
       margin-right: 0.5rem;
-
-      @include bp.lt(bp.get(sm)) {
-        margin: 0 0.5rem;
-      }
+      top: 0.2rem;
     }
 
     /* post's title */
