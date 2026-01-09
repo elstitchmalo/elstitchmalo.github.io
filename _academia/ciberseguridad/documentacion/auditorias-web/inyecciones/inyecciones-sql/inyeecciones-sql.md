@@ -15,39 +15,39 @@ La inyección SQL (SQLi) es una vulnerabilidad que ocurre cuando una aplicación
 
 ### **1. Según el canal de comunicación**
 
-  - [**Inyección SQL en banda**](../../../inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/introduccion)  
+  - [**Inyección SQL en banda**](../../../inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/introduccion)  
     El atacante obtiene los resultados a través del mismo canal que usa para enviar la inyección (por ejemplo, la respuesta HTTP de la web).  
 
-    - [**Inyección SQL basada en errores**](../../../inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/basadas-en-errores)  
+    - [**Inyección SQL basada en errores**](../../../inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/basadas-en-errores)  
       Usa mensajes de error generados por la base de datos para extraer información (nombre de BD, versión, estructura).  
 
-    - [**Inyección SQL basada en UNION**](../../../inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/basadas-en-union)  
+    - [**Inyección SQL basada en UNION**](../../../inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/basadas-en-union)  
       Usa la cláusula `UNION SELECT` para unir los resultados de una consulta maliciosa con la consulta original y así verlos directamente en la respuesta HTTP.  
 
-  - [**Inyección SQL ciega**](../../../inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/introduccion)  
+  - [**Inyección SQL ciega**](../../../inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/introduccion)  
     No devuelve resultados directamente. El atacante deduce información observando cambios en el comportamiento, el contenido o el tiempo de respuesta del servidor.  
 
-    - [**Inyección SQL basada en condicionales**](../../../inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/basadas-en-condicionales)  
+    - [**Inyección SQL basada en condicionales**](../../../inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/basadas-en-condicionales)  
       Deducción por verdadero/falso. Se analiza si la página cambia o no.  
 
-     - [**Inyección SQL basada en errores condicionales**](../../../inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/basadas-en-errores-condicionales)  
+     - [**Inyección SQL basada en errores condicionales**](../../../inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/basadas-en-errores-condicionales)  
       Deducción por verdadero/falso provocando un error. Se analiza si se devuelve un error o no. 
 
-    - [**Inyección SQL basada en tiempo**](../../../inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/basadas-en-tiempo)  
+    - [**Inyección SQL basada en tiempo**](../../../inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/basadas-en-tiempo)  
       Deducción por tiempo de respuesta. El atacante provoca retardos condicionales.  
 
-  - [**Inyección SQL fuera de banda (OAST)**](../../../inyecciones-sql/segun-el-canal-de-comunicacion/fuera-de-banda/fuera-de-banda-oast)  
+  - [**Inyección SQL fuera de banda (OAST)**](../../../inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/fuera-de-banda/fuera-de-banda-oast)  
     El atacante no recibe información por el canal normal, sino a través de un canal alternativo externo, como DNS o HTTP callbacks.  
 
 ### **2. Según el contexto de ejecución**
 
-  - [**Consultas apiladas**](../../../inyecciones-sql/segun-el-contexto-de-ejecucion/consultas-apiladas)  
+  - [**Consultas apiladas**](../../../inyecciones/inyecciones-sql/segun-el-contexto-de-ejecucion/consultas-apiladas)  
     El atacante inserta varios comandos SQL en una misma petición separándolos con `;`. 
 
-  - [**Inyección SQL de segundo orden**](../../../inyecciones-sql/segun-el-contexto-de-ejecucion/de-segundo-orden)  
+  - [**Inyección SQL de segundo orden**](../../../inyecciones/inyecciones-sql/segun-el-contexto-de-ejecucion/de-segundo-orden)  
     La inyección se almacena primero y se ejecuta más tarde, cuando otro proceso o función usa ese dato en una consulta SQL.  
 
-  - [**Client-Side / API / JSON / GraphQL (contexto moderno)**](../../../inyecciones-sql/segun-el-contexto-de-ejecucion/client-side-api-json-graphql)  
+  - [**Client-Side / API / JSON / GraphQL (contexto moderno)**](../../../inyecciones/inyecciones-sql/segun-el-contexto-de-ejecucion/client-side-api-json-graphql)  
     No es un tipo nuevo a nivel teórico, sino una variación contextual.  
     La inyección ocurre dentro de peticiones JSON, GraphQL o API REST, pero sigue siendo in-band o blind según la extracción de datos.  
 
@@ -324,27 +324,27 @@ Colección de CheatSheets para pruebas y ataques de inyección SQL:
 
 - [Ofuscar ataques PortSwigger](https://portswigger.net/web-security/essential-skills/obfuscating-attacks-using-encodings)
 
-- [Inyecciones SQL](../../../../../cheatsheets/auditorias-web/documentacion/inyecciones-sql)
+- [Inyecciones SQL](../../../../cheatsheets/auditorias-web/documentacion/inyecciones-sql)
 
 ## FuzzLists
 
 Lista de payloads para detectar si la aplicación es vulnerable a ataques de inyección SQL:
 
-- [Fuzzing básico](../../../../../fuzzlists/inyecciones-sql/fuzzing-basico)
+- [Fuzzing básico](../../../../fuzzlists/inyecciones-sql/fuzzing-basico)
 
 ## Herramientas
 
 Colección de herramientas para pruebas y ataques de inyección SQL:
 
-- [SQLmap](../../../../../herramientas/auditorias-web/herramientas-de-escaneo-automatico/sqlmap)  
+- [SQLmap](../../../../herramientas/auditorias-web/herramientas-de-escaneo-automatico/sqlmap)  
 
-- [Burp Scanner](../../../../../herramientas/auditorias-web/herramientas-de-escaneo-automatico/burp-scanner)  
+- [Burp Scanner](../../../../herramientas/auditorias-web/herramientas-de-escaneo-automatico/burp-scanner)  
 
-- [Burp Collaborator](../../../../../herramientas/auditorias-web/interacciones-fuera-de-banda/burp-collaborator)  
+- [Burp Collaborator](../../../../herramientas/auditorias-web/interacciones-fuera-de-banda/burp-collaborator)  
 
-- [Interactsh](../../../../../herramientas/auditorias-web/interacciones-fuera-de-banda/interactsh)  
+- [Interactsh](../../../../herramientas/auditorias-web/interacciones-fuera-de-banda/interactsh)  
 
-- [Hackvertor](../../../../../herramientas/auditorias-web/codificacion-y-ofuscacion/hackvertor)  
+- [Hackvertor](../../../../herramientas/auditorias-web/codificacion-y-ofuscacion/hackvertor)  
 
 
 
