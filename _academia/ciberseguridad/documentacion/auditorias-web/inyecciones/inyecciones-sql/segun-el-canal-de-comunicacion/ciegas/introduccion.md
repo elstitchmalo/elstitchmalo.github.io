@@ -2,7 +2,7 @@
 title: Introducción
 layout: academia_lesson
 description: Introducción a las inyecciones SQL ciegas, sus características y escenarios de uso más comunes.
-parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/
+parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/
 author: ElStitchMalo
 date:  16/12/2025
 updated: 

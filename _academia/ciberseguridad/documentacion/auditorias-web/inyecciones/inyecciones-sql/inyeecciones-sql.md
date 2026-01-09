@@ -2,7 +2,7 @@
 title: Inyecciones SQL
 description: Qué son, tipos y cómo funcionan las inyecciones SQL.
 layout: academia_lesson
-parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/
+parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones/inyecciones-sql/
 author: ElStitchMalo
 date: 16/12/2025
 updated:

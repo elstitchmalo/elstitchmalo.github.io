@@ -2,7 +2,7 @@
 title: Inyección SQL de segundo orden
 description: Explicación de las inyecciones SQL de segundo orden.
 layout: academia_lesson
-parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/segun-el-contexto-de-ejecucion/
+parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones/inyecciones-sql/segun-el-contexto-de-ejecucion/
 author: ElStitchMalo
 date: 16/12/2025
 updated:

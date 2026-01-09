@@ -2,7 +2,7 @@
 title: Inyecciones SQL basadas en errores
 description: Explicación de las inyecciones SQL basadas en errores.
 layout: academia_lesson
-parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/
+parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/
 author: ElStitchMalo
 date: 16/12/2025
 updated:

@@ -2,7 +2,7 @@
 title: Inyección SQL fuera de banda (OAST)
 description: Explicación de las inyecciones SQL fuera de banda (OAST).
 layout: academia_lesson
-parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/segun-el-canal-de-comunicacion/fuera-de-banda/
+parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/fuera-de-banda/
 author: ElStitchMalo
 date: 16/12/2025
 updated:

@@ -2,7 +2,7 @@
 title: Inyecciones SQL basadas en tiempo
 description: Explicación de las inyecciones SQL basadas en tiempo.
 layout: academia_lesson
-parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/
+parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/ciegas/
 author: ElStitchMalo
 date: 16/12/2025
 updated:

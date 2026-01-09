@@ -2,7 +2,7 @@
 title: Consultas apiladas
 description: Explicación de las consultas apiladas.
 layout: academia_lesson
-parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/segun-el-contexto-de-ejecucion/
+parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones/inyecciones-sql/segun-el-contexto-de-ejecucion/
 author: ElStitchMalo
 date: 16/12/2025
 updated:

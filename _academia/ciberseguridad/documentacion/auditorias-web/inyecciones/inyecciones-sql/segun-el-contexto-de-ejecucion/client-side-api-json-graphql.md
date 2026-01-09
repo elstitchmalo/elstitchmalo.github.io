@@ -2,7 +2,7 @@
 title: Client-Side / API / JSON / GraphQL
 description: Explicación de las consultas Client-Side / API / JSON / GraphQL.
 layout: academia_lesson
-parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/segun-el-contexto-de-ejecucion/
+parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones/inyecciones-sql/segun-el-contexto-de-ejecucion/
 author: ElStitchMalo
 date: 16/12/2025
 updated:

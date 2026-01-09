@@ -2,7 +2,7 @@
 title: Introducción
 layout: academia_lesson
 description: Introducción a las inyecciones SQL en banda, sus características y escenarios de uso más comunes.
-parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/
+parent: /academia/ciberseguridad/documentacion/auditorias-web/inyecciones/inyecciones-sql/segun-el-canal-de-comunicacion/en-banda/
 author: ElStitchMalo
 date:  16/12/2025
 updated: 
