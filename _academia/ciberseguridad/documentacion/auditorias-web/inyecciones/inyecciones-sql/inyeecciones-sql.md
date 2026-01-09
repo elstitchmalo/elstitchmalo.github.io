@@ -324,27 +324,27 @@ Colección de CheatSheets para pruebas y ataques de inyección SQL:
 
 - [Ofuscar ataques PortSwigger](https://portswigger.net/web-security/essential-skills/obfuscating-attacks-using-encodings)
 
-- [Inyecciones SQL](../../../../cheatsheets/auditorias-web/documentacion/inyecciones-sql)
+- [Inyecciones SQL](../../../../../cheatsheets/auditorias-web/documentacion/inyecciones-sql)
 
 ## FuzzLists
 
 Lista de payloads para detectar si la aplicación es vulnerable a ataques de inyección SQL:
 
-- [Fuzzing básico](../../../../fuzzlists/inyecciones-sql/fuzzing-basico)
+- [Fuzzing básico](../../../../../fuzzlists/inyecciones-sql/fuzzing-basico)
 
 ## Herramientas
 
 Colección de herramientas para pruebas y ataques de inyección SQL:
 
-- [SQLmap](../../../../herramientas/auditorias-web/herramientas-de-escaneo-automatico/sqlmap)  
+- [SQLmap](../../../../../herramientas/auditorias-web/herramientas-de-escaneo-automatico/sqlmap)  
 
-- [Burp Scanner](../../../../herramientas/auditorias-web/herramientas-de-escaneo-automatico/burp-scanner)  
+- [Burp Scanner](../../../../../herramientas/auditorias-web/herramientas-de-escaneo-automatico/burp-scanner)  
 
-- [Burp Collaborator](../../../../herramientas/auditorias-web/interacciones-fuera-de-banda/burp-collaborator)  
+- [Burp Collaborator](../../../../../herramientas/auditorias-web/interacciones-fuera-de-banda/burp-collaborator)  
 
-- [Interactsh](../../../../herramientas/auditorias-web/interacciones-fuera-de-banda/interactsh)  
+- [Interactsh](../../../../../herramientas/auditorias-web/interacciones-fuera-de-banda/interactsh)  
 
-- [Hackvertor](../../../../herramientas/auditorias-web/codificacion-y-ofuscacion/hackvertor)  
+- [Hackvertor](../../../../../herramientas/auditorias-web/codificacion-y-ofuscacion/hackvertor)  
 
 
 
