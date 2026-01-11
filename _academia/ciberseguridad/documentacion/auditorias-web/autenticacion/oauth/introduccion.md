@@ -77,7 +77,7 @@ OAuth 2.0 define cómo interactúan tres actores principales:
 
 ### Flujos o tipos de concesión
 
-OAuth 2.0 puede implementarse de distintas formas llamadas flujos o [tipos de concesión]().
+OAuth 2.0 puede implementarse de distintas formas llamadas flujos o [tipos de concesión](../../oauth/tipos-de-concesion).
 
 En este contenido nos centraremos en los más comunes:
 

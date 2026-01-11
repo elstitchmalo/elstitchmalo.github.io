@@ -119,11 +119,11 @@ Las vulnerabilidades pueden clasificarse en dos grandes grupos:
 
 En particular, existen áreas donde las vulnerabilidades son especialmente comunes:
 
-- [**Inicio de sesión basado en contraseñas**](): mecanismos tradicionales que dependen de un nombre de usuario y una contraseña.
+- [**Inicio de sesión basado en contraseñas**](../../autenticacion/basada-en-contrasena/introduccion): mecanismos tradicionales que dependen de un nombre de usuario y una contraseña.
 
-- [**Autenticación multifactor**](): sistemas que combinan más de una prueba de identidad, como contraseña y código temporal.
+- [**Autenticación multifactor**](../../autenticacion/autenticacion-multifactor/introduccion): sistemas que combinan más de una prueba de identidad, como contraseña y código temporal.
 
-- [**Otros mecanismos de autenticación**](): métodos alternativos que no encajan en los dos grupos anteriores.
+- [**Otros mecanismos de autenticación**](../../autenticacion/otros-mecanismos/vulnerabilidades-en-otros-mecanismos): métodos alternativos que no encajan en los dos grupos anteriores.
 
 Cada una de estas áreas presenta riesgos distintos que deben analizarse de forma separada.
 
@@ -132,7 +132,7 @@ Cada una de estas áreas presenta riesgos distintos que deben analizarse de form
 Muchas aplicaciones permiten iniciar sesión usando servicios externos, como cuentas de Google, Facebook o GitHub.  
 Este tipo de autenticación suele implementarse mediante OAuth.
 
-[OAuth]() es un protocolo que permite a una aplicación verificar la identidad de un usuario sin manejar directamente su contraseña.  
+[OAuth](../../autenticacion/oauth/introduccion) es un protocolo que permite a una aplicación verificar la identidad de un usuario sin manejar directamente su contraseña.  
 En lugar de eso, la aplicación confía en un proveedor externo (por ejemplo, Google), que autentica al usuario y devuelve un token.
 
 > Un token es un valor temporal que indica que el usuario ya ha sido autenticado por el proveedor externo.

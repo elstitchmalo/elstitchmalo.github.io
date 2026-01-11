@@ -352,7 +352,7 @@ Esto puede permitir al atacante suplantar la identidad de la víctima.
 
 ## OAuth y OpenID Connect
 
-Cuando OAuth se utiliza para autenticación (no solo para autorización), suele combinarse con [OpenID]() Connect.
+Cuando OAuth se utiliza para autenticación (no solo para autorización), suele combinarse con [OpenID](../../../autenticacion/openid/openid) Connect.
 
 Esta extensión añade mecanismos específicos para identificar al usuario, pero también introduce nuevos vectores de ataque si se implementa incorrectamente.
 
