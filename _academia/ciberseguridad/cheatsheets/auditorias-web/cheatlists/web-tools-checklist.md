@@ -8,6 +8,10 @@ date: 16/12/2025
 updated:
 tags: [checklist]
 ---
+- [ ] Herramientas de reconocimiento
+    - [X] nslookup
+    - [X] dnsdumpster
+    - [X] Sudomy
 - [ ] Herramientas de escaneo automático
     - [X] [Burp Scanner](../../../../herramientas/auditorias-web/herramientas-de-escaneo-automatico/burp-scanner/)
     - [ ] Inyecciones SQL
